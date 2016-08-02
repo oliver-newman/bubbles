@@ -16,7 +16,7 @@ var w = window.innerWidth;
 var h = window.innerHeight;
 
 // Behavior
-var followMouse = true;
+var followMouse = false;
 var makeBubbles = false;
 var ixv = 0; // Initial x velocity of each bubble
 var iyv = 0; // Initial y velocity of each bubble
@@ -63,6 +63,7 @@ function setup() {
 	canvas.parent("canvasContainer");
 
 	bg = document.getElementById("background");
+  $("#numBubbles").html(numBubbles);
 
 	// Create bubbles, starting in the center of the window
 	for (i = 0; i < numBubbles; i++) {
@@ -72,9 +73,6 @@ function setup() {
 
 // p5.js function (executes infinitely after setup())
 function draw() {
-	followMouse = document.getElementById("followMouse").checked;
-	makeBubbles = document.getElementById("makeBubbles").checked;
-
 	background(backgroundColor.r, backgroundColor.g, backgroundColor.b);
 	strokeWeight(r * 2);
 
@@ -132,8 +130,24 @@ function draw() {
 	// Generate more bubbles on click, until 500 bubbles are present
 	if (mouseIsPressed && makeBubbles && (numBubbles < 500)) {
 		numBubbles++;
+    $("#numBubbles").html(numBubbles);
+
 		bubbles.push(defaultBubble(mouseX, mouseY));
 	}
+
+  document.getElementById("followMouse").onclick = function() {
+    followMouse = !followMouse;
+  };
+  
+  document.getElementById("makeBubbles").onclick = function() {
+    makeBubbles = !makeBubbles;
+  };
+
+  document.getElementById("clearBubbles").onclick = function() {
+    bubbles = [];
+    numBubbles = 0;
+    $("#numBubbles").html(numBubbles);
+  };
 }
 
 

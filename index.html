@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Bubbles</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.2/p5.js"></script>
 		<link rel="stylesheet" href="styles.css">
 		<script src="bubbles.js"></script>
@@ -10,15 +11,15 @@
 
 	<body>
 		<div class="background" id="canvasContainer"></div>
-		<div id="floatMenu">
+		<div id="floatMenu" class="resizable" draggable="true">
 			<h2>Bubbles</h2>
 			<h5>with p5.js</h5>
 
-			<input type="checkbox" id="followMouse">
-			<label for="followMouse">Follow mouse</label></br>
+			<p>Bubbles: <span id="numBubbles"></span></p>
 
-			<input type="checkbox" id="makeBubbles">
-			<label for="makeBubbles">Let click create bubbles</label></br>
+			<button id="followMouse">Follow mouse</button>
+			<button id="makeBubbles">Make Bubbles</button>
+			<button id="clearBubbles">Clear Bubbles</button>
 
 			<p id="copyright">&copy; 2016 Oliver Newman</p>
 		</div>

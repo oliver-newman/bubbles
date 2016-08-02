@@ -31,6 +31,17 @@ body {
 
 }
 
+[draggable=true] {
+    cursor: move;
+}
+
+.resizable {
+    overflow: scroll;
+    resize: both;
+    max-width: 300px;
+    max-height: 460px;
+}
+
 h1, h2, h3, h4, h5, h6 {
 	text-align: center;
 	line-height: 10px;
@@ -40,7 +51,6 @@ h4 {
 	text-align: center;
 }
 
-
 input[type="checkbox"] {
 	display:inline-block;
 	width:19px;
@@ -49,6 +59,19 @@ input[type="checkbox"] {
 	vertical-align:middle;
 	background:url(check_radio_sheet.png) left top no-repeat;
 	cursor:pointer;
+}
+
+button {
+	color: white;
+	border-style: solid;
+	border-color: grey;
+	border-radius: 5px;
+	background-color: black;
+	padding: 10px 16px;
+	display: block;
+	margin: 0 auto;
+	font-size: 16px;
+	text-align: center;
 }
 
 #copyright {
