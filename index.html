@@ -2,18 +2,25 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>p5 Test</title>
+		<title>Bubbles</title>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.2/p5.js"></script>
-		<style>
-			body {
-				display: block;
-				margin: 0px;
-			}
-		</style>
+		<link rel="stylesheet" href="styles.css">
 		<script src="bubbles.js"></script>
 	</head>
+
 	<body>
-		<input type="checkbox" id="followMouse"></input>
-		<input type="checkbox" id="makeBubbles"></input>
+		<div class="background" id="canvasContainer"></div>
+		<div id="floatMenu">
+			<h2>Bubbles</h2>
+			<h5>with p5.js</h5>
+
+			<input type="checkbox" id="followMouse">
+			<label for="followMouse">Follow mouse</label></br>
+
+			<input type="checkbox" id="makeBubbles">
+			<label for="makeBubbles">Let click create bubbles</label></br>
+
+			<p id="copyright">&copy; 2016 Oliver Newman</p>
+		</div>
 	</body>
 </html>

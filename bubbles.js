@@ -9,7 +9,7 @@
 
 // Appearance
 var bubbles = []; // Array of bubble data
-var numBubbles = 300; // Number of bubbles
+var numBubbles = 10; // Number of bubbles
 var r = 10; // Radius of each bubble
 var backgroundColor = {r: 0, g: 0, b: 0}; // Background RGB balues
 var w = window.innerWidth;
@@ -20,11 +20,11 @@ var followMouse = true;
 var makeBubbles = false;
 var ixv = 0; // Initial x velocity of each bubble
 var iyv = 0; // Initial y velocity of each bubble
-var maxv = 2; // When followMouse is false, maximum x and y velocity
+var maxv = 4; // When followMouse is false, maximum x and y velocity
 var followFactor = 0.007; // How quickly bubbles move to mouse
 var randomFactor = 3; // How quickly the bubbles move randomly
-var noFollowRandomFactor = 0.1 * randomFactor; // How quickly the bubbles move
-																							 // randomly when not following 
+var noFollowRandomFactor = 0.3 * randomFactor; // How quickly the bubbles move
+					       // randomly when not following 
 
 // Physics
 var bounceFriction = 0.5; // Fraction of velocity to conserve after bounce
@@ -34,11 +34,11 @@ var airFriction = 0.98; // Fraction of velocity to conserve while not bouncing
 // Helper functions
 
 // Creates a bubble object with the default settings specified by globals
-function defaultBubble() {
+function defaultBubble(x, y) {
 	return {
 		// Start bubble in middle of window
-		x: w / 2,
-		y: h / 2,
+		x: x,
+		y: y,
 		// Choose random color for bubble
 		r: Math.random() * 255,
 		g: Math.random() * 255,
@@ -59,10 +59,14 @@ function drawBubble(x, y) {
 
 // p5.js function (executes once at beginning)
 function setup() {
-	createCanvas(w, h);
+	var canvas = createCanvas(w, h);
+	canvas.parent("canvasContainer");
 
+	bg = document.getElementById("background");
+
+	// Create bubbles, starting in the center of the window
 	for (i = 0; i < numBubbles; i++) {
-		bubbles.push(defaultBubble());
+		bubbles.push(defaultBubble(w / 2, h / 2));
 	}
 }
 
@@ -126,8 +130,14 @@ function draw() {
 	}
 
 	// Generate more bubbles on click, until 500 bubbles are present
-	if (makeBubbles && (numBubbles < 500) && mouseIsPressed) {
+	if (mouseIsPressed && makeBubbles && (numBubbles < 500)) {
 		numBubbles++;
-		bubbles.push(defaultBubble());
+		bubbles.push(defaultBubble(mouseX, mouseY));
 	}
 }
+
+
+
+
+
+
