@@ -1,0 +1,65 @@
+body {
+	display: block;
+	margin: 0px;
+	font-family: "Lucida Sans Unicode";
+	color: white;
+	background-color: black;
+}
+
+.background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -100;
+}
+
+#floatMenu {
+	border-style: solid;
+	border-color: grey;
+	border-radius: 15px;
+	background-color: black;
+	margin: 30px;
+	padding: 10px;
+	position: absolute;
+	opacity: 0.3;
+	filter: alpha(opacity=30);
+}
+
+#floatMenu:hover {
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-align: center;
+	line-height: 10px;
+}
+
+h4 {
+	text-align: center;
+}
+
+
+input[type="checkbox"] {
+	display:inline-block;
+	width:19px;
+	height:19px;
+	margin:-1px 4px 0 0;
+	vertical-align:middle;
+	background:url(check_radio_sheet.png) left top no-repeat;
+	cursor:pointer;
+}
+
+#copyright {
+	color: grey;
+  font-size: 10px;
+	text-align: right;
+}
+
+
+
+
+
+
+
