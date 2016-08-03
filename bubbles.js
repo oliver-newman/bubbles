@@ -40,9 +40,9 @@ function defaultBubble(x, y) {
 		x: x,
 		y: y,
 		// Choose random color for bubble
-		r: Math.random() * colorRangeSize + (127.5 * warm),
+		r: Math.random() * 255,
 		g: Math.random() * 255,
-		b: Math.random() * colorRangeSize + (127.5 * cold),
+		b: Math.random() * 255,
 		// Start with specified velocity
 		xv: ixv,
 		yv: iyv
