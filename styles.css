@@ -23,10 +23,21 @@ body {
 	position: absolute;
 	opacity: 0.3;
 	filter: alpha(opacity=30);
-	-webkit-transition: all 0.1s ease-in-out;
-	-moz-transition: all 0.1s ease-in-out;
-	-o-transition: all 0.1s ease-in-out;
-	transition: all 0.1s ease-in-out;
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+
+/* Don't let user highlight text */
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
 }
 
 #floatMenu:hover {
@@ -76,11 +87,22 @@ button:active {
 	background-color:white;
 }
 
-#copyright {
+#foot {
 	color: grey;
   font-size: 10px;
 	text-align: right;
 }
+
+#gh {
+	text-align: center;
+	color: grey;
+}
+
+a {
+	color: grey;
+}
+
+
 
 
 

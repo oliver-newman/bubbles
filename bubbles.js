@@ -11,9 +11,9 @@
 var bubbles = []; // Array of bubble data
 var numBubbles = 10; // Number of bubbles
 var r = 10; // Radius of each bubble
-var backgroundColor = {r: 0, g: 0, b: 0}; // Background RGB balues
 var w = window.innerWidth;
 var h = window.innerHeight;
+var backgroundColor = {r: 0, g: 0, b: 0};
 
 // Behavior
 var followMouse = false;
@@ -40,9 +40,9 @@ function defaultBubble(x, y) {
 		x: x,
 		y: y,
 		// Choose random color for bubble
-		r: Math.random() * 255,
+		r: Math.random() * colorRangeSize + (127.5 * warm),
 		g: Math.random() * 255,
-		b: Math.random() * 255,
+		b: Math.random() * colorRangeSize + (127.5 * cold),
 		// Start with specified velocity
 		xv: ixv,
 		yv: iyv
@@ -52,6 +52,21 @@ function defaultBubble(x, y) {
 // Draws a bubble at (x, y)
 function drawBubble(x, y) {
 	point(x, y);
+}
+
+//
+function timeColor() {
+  var now = new Date();
+
+  var daySecs = 86400.0;
+
+  var hours = 23; //now.getHours();
+  var minutes = now.getMinutes();
+  var seconds = now.getSeconds();
+
+  var dayFrac = (seconds + 60 * minutes + 3600 * hours) / daySecs;
+
+  return (255) * (Math.abs(dayFrac - 0.5) + 0.5);
 }
 
 //------------------------------------------------------------------------------
@@ -128,13 +143,16 @@ function draw() {
 	}
 
 	// Generate more bubbles on click, until 500 bubbles are present
-	if (mouseIsPressed && makeBubbles && (numBubbles < 500)) {
-		numBubbles++;
-    $("#numBubbles").html(numBubbles);
+	document.getElementById("canvasContainer").onclick = function() {
+		if (makeBubbles && (numBubbles < 500)) {
+			numBubbles++;
+			$("#numBubbles").html(numBubbles);
 
-		bubbles.push(defaultBubble(mouseX, mouseY));
+			bubbles.push(defaultBubble(mouseX, mouseY));
+		}
 	}
 
+	// Let bubbles follow mouse
   document.getElementById("followMouse").onclick = function() {
     followMouse = !followMouse;
     if (followMouse) {
@@ -147,6 +165,7 @@ function draw() {
     }
   };
   
+	// Let mouse click make bubbles
   document.getElementById("makeBubbles").onclick = function() {
     makeBubbles = !makeBubbles;
     if (makeBubbles) {
@@ -159,6 +178,7 @@ function draw() {
     }
   };
 
+	// Clear all bubbles
   document.getElementById("clearBubbles").onclick = function() {
     bubbles = [];
     numBubbles = 0;
