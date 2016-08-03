@@ -137,10 +137,26 @@ function draw() {
 
   document.getElementById("followMouse").onclick = function() {
     followMouse = !followMouse;
+    if (followMouse) {
+      document.getElementById("followMouse").style.backgroundColor = "white";
+      document.getElementById("followMouse").style.color = "black";
+    }
+    else {
+      document.getElementById("followMouse").style.backgroundColor = "black";
+      document.getElementById("followMouse").style.color = "white";
+    }
   };
   
   document.getElementById("makeBubbles").onclick = function() {
     makeBubbles = !makeBubbles;
+    if (makeBubbles) {
+      document.getElementById("makeBubbles").style.backgroundColor = "white";
+      document.getElementById("makeBubbles").style.color = "black";
+    }
+    else {
+      document.getElementById("makeBubbles").style.backgroundColor = "black";
+      document.getElementById("makeBubbles").style.color = "white";
+    }
   };
 
   document.getElementById("clearBubbles").onclick = function() {
@@ -149,8 +165,6 @@ function draw() {
     $("#numBubbles").html(numBubbles);
   };
 }
-
-
 
 
 
